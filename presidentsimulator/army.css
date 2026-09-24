@@ -1,0 +1,520 @@
+.army-panel {
+  display: grid;
+  gap: 16px;
+}
+
+/* Carte du pays joué. */
+.army-country-card {
+  display: grid;
+  grid-template-columns: minmax(130px, 220px) 1fr;
+  gap: 18px;
+  align-items: center;
+  padding: 18px;
+  border: 1px solid rgba(101, 199, 171, .3);
+  border-radius: 18px;
+  background: linear-gradient(135deg, rgba(101, 199, 171, .12), rgba(23, 34, 53, .55));
+}
+
+.army-country-flag {
+  display: grid;
+  min-height: 130px;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, .14);
+  border-radius: 14px;
+  background: rgba(5, 13, 25, .4);
+  font-size: 76px;
+  line-height: 1;
+}
+
+.army-country-copy .eyebrow { color: var(--mint); }
+.army-country-copy h3 { margin: 3px 0 6px; font-size: clamp(22px, 5vw, 30px); letter-spacing: -.03em; }
+.army-country-tagline { margin: 0 0 14px; color: var(--muted); font-size: 13px; line-height: 1.5; }
+
+.army-country-stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.army-country-stats span {
+  display: grid;
+  gap: 3px;
+  min-width: 0;
+  padding: 9px 10px;
+  border: 1px solid rgba(255, 255, 255, .1);
+  border-radius: 11px;
+  background: rgba(5, 13, 25, .32);
+}
+
+.army-country-stats small {
+  color: var(--muted);
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+
+.army-country-stats strong { font-size: 13px; overflow-wrap: anywhere; }
+
+.army-country-badges { display: flex; flex-wrap: wrap; gap: 8px; }
+
+.army-badge {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 6px 11px;
+  border: 1px solid rgba(101, 199, 171, .3);
+  border-radius: 999px;
+  background: rgba(101, 199, 171, .08);
+  font-size: 11px;
+}
+
+.army-badge small {
+  color: var(--muted);
+  font-size: 8px;
+  font-weight: 900;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+.army-badge.is-bonus small { color: var(--mint); }
+.army-badge.is-malus { border-color: rgba(255, 139, 133, .32); background: rgba(255, 139, 133, .08); }
+.army-badge.is-malus small { color: #ff8b85; }
+
+/* Forces armées du pays joué. */
+.army-forces {
+  padding: 18px;
+  border: 1px solid rgba(101, 199, 171, .3);
+  border-radius: 18px;
+  background: linear-gradient(135deg, rgba(23, 34, 53, .62), rgba(5, 13, 25, .58));
+}
+
+.army-forces .economy-heading h3 { font-size: 20px; }
+
+.army-projection {
+  margin: 14px 0 16px;
+  padding: 14px 16px;
+  border: 1px solid rgba(255, 255, 255, .1);
+  border-radius: 14px;
+  background: rgba(5, 13, 25, .32);
+}
+
+.army-projection-copy {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 9px;
+}
+
+.army-projection-copy span { color: var(--muted); font-size: 12px; font-weight: 700; }
+.army-projection-copy strong { font-size: 26px; letter-spacing: -.02em; }
+
+.army-meter {
+  position: relative;
+  height: 10px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, .08);
+  overflow: hidden;
+}
+
+.army-meter span {
+  display: block;
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #3fa98a, var(--mint));
+  transition: width .4s ease;
+}
+
+.army-meter.is-mid span { background: linear-gradient(90deg, #d8a545, #f2c14e); }
+.army-meter.is-low span { background: linear-gradient(90deg, #c05048, #ff8b85); }
+
+.army-branches {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.army-branch {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  border: 1px solid rgba(255, 255, 255, .1);
+  border-radius: 14px;
+  background: rgba(5, 13, 25, .32);
+  overflow: hidden;
+}
+
+.army-branch-media {
+  position: relative;
+  height: 116px;
+  background: radial-gradient(circle at 50% 40%, rgba(101, 199, 171, .18), rgba(5, 13, 25, .5) 70%);
+}
+
+.army-branch-photo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.army-branch-media.is-plain {
+  display: grid;
+  place-items: center;
+}
+
+.army-branch-icon {
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  flex: none;
+  display: grid;
+  width: 38px;
+  height: 38px;
+  place-items: center;
+  border-radius: 10px;
+  border: 1px solid rgba(101, 199, 171, .38);
+  background: rgba(5, 13, 25, .78);
+  box-shadow: 0 4px 12px rgba(5, 10, 18, .35);
+  color: var(--mint);
+}
+
+.army-branch-media.is-plain .army-branch-icon {
+  position: static;
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  background: rgba(101, 199, 171, .12);
+}
+
+.army-branch-media.is-plain .army-branch-svg {
+  width: 30px;
+  height: 30px;
+}
+
+.army-branch-svg {
+  width: 24px;
+  height: 24px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.army-branch-copy { display: grid; gap: 3px; min-width: 0; padding: 11px 13px 13px; }
+.army-branch-label {
+  color: var(--muted);
+  font-size: 10.5px;
+  font-weight: 800;
+  letter-spacing: .02em;
+  text-transform: uppercase;
+}
+
+.army-branch-value {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 2px 5px;
+  font-size: 17px;
+  font-weight: 800;
+  letter-spacing: -.02em;
+  overflow-wrap: anywhere;
+}
+
+.army-branch-unit { color: var(--muted); font-size: 10.5px; font-weight: 600; white-space: nowrap; }
+.army-branch-model {
+  color: var(--mint);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .01em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.army-forces .usa-mechanic-note { margin: 14px 0 0; }
+
+@media (max-width: 640px) {
+  .army-branches { grid-template-columns: 1fr; }
+  .army-branch-value { font-size: 16px; }
+  .army-branch-media { height: 150px; }
+}
+
+/* Cartes d'action de défense France. */
+.france-defense-card {
+  border-color: rgba(101, 199, 171, .28);
+  background: rgba(101, 199, 171, .07);
+}
+
+.france-defense-card:hover {
+  border-color: var(--mint);
+  background: rgba(101, 199, 171, .14);
+}
+
+.france-defense-card > small { color: var(--mint); }
+.france-defense-card.is-disabled > small { color: var(--muted); }
+
+@media (max-width: 640px) {
+  .army-country-card { grid-template-columns: 1fr; }
+  .army-country-flag { min-height: 96px; font-size: 60px; }
+  .army-country-stats { grid-template-columns: 1fr; }
+}
+
+/* Carte du monde stylisée. */
+.world-map-card {
+  padding: 18px;
+  border: 1px solid rgba(101, 199, 171, .3);
+  border-radius: 18px;
+  background: linear-gradient(135deg, rgba(23, 34, 53, .62), rgba(5, 13, 25, .58));
+  overflow: hidden;
+}
+
+.world-map-head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.world-map-head .eyebrow { color: var(--mint); }
+.world-map-head h3 { margin: 3px 0 0; font-size: 18px; letter-spacing: -.02em; }
+
+.world-map-pin {
+  flex: none;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--mint);
+  box-shadow: 0 0 0 5px rgba(101, 199, 171, .16);
+}
+
+.world-map-tag {
+  margin-left: auto;
+  padding: 6px 11px;
+  border: 1px solid rgba(101, 199, 171, .32);
+  border-radius: 999px;
+  background: rgba(101, 199, 171, .1);
+  color: var(--mint);
+  font-size: 11px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.world-map-stage {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, .09);
+  border-radius: 14px;
+  background:
+    radial-gradient(circle at 50% 42%, rgba(101, 199, 171, .09), transparent 58%),
+    rgba(5, 13, 25, .45);
+}
+
+.world-map-svg { display: block; width: 100%; height: auto; }
+.wm-grid { stroke: rgba(255, 255, 255, .045); stroke-width: 1; }
+.wm-continent { fill: rgba(148, 163, 184, .42); }
+.wm-country { fill: var(--mint); filter: drop-shadow(0 0 7px rgba(101, 199, 171, .6)); }
+.wm-marker { fill: #0f2a21; stroke: #eafff5; stroke-width: 2.5; }
+
+.wm-marker-ring {
+  fill: none;
+  stroke: var(--mint);
+  stroke-width: 2;
+  opacity: .85;
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: wm-ping 2.6s ease-out infinite;
+}
+
+@keyframes wm-ping {
+  0% { transform: scale(.55); opacity: .85; }
+  70% { transform: scale(1.9); opacity: 0; }
+  100% { transform: scale(1.9); opacity: 0; }
+}
+
+.world-map-legend {
+  position: absolute;
+  left: 12px;
+  bottom: 10px;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 6px 11px;
+  border: 1px solid rgba(255, 255, 255, .1);
+  border-radius: 999px;
+  background: rgba(5, 13, 25, .72);
+  color: var(--muted);
+  font-size: 10.5px;
+  pointer-events: none;
+}
+
+.world-map-legend-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--mint);
+  box-shadow: 0 0 6px rgba(101, 199, 171, .8);
+}
+
+.world-map-legend strong { color: #eef2f6; font-weight: 800; }
+
+/* Vraie carte du monde (contours des pays, chargée via jsdelivr). */
+.world-map-stage.is-real {
+  background:
+    radial-gradient(circle at 50% 42%, rgba(101, 199, 171, .07), transparent 58%),
+    linear-gradient(rgba(255, 255, 255, .03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, .03) 1px, transparent 1px),
+    rgba(5, 13, 25, .5);
+  background-size: auto, 46px 46px, 46px 46px, auto;
+}
+
+.world-map-stage.is-real svg path {
+  fill: #33445e;
+  stroke: rgba(4, 11, 22, .6);
+  stroke-width: .55;
+}
+
+/* Coût d'entretien du matériel : ligne par modèle + bandeau total du panneau. */
+.army-market-upkeep {
+  display: block;
+  color: #ffc98a;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 800;
+  letter-spacing: .02em;
+}
+
+.army-upkeep-card {
+  display: grid;
+  gap: 4px;
+  margin-top: 14px;
+  padding: 12px 14px;
+  border: 1px solid rgba(255, 184, 107, .34);
+  border-radius: 14px;
+  background: linear-gradient(135deg, rgba(255, 184, 107, .12), rgba(23, 34, 53, .35));
+}
+
+.army-upkeep-label {
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.army-upkeep-card strong {
+  color: #ffc98a;
+  font-size: 17px;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -.01em;
+}
+
+.army-upkeep-card small {
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.45;
+}
+
+.world-map-stage.is-real svg .is-current path {
+  fill: var(--mint);
+  stroke: rgba(4, 11, 22, .65);
+  stroke-width: .7;
+  filter: drop-shadow(0 0 7px rgba(101, 199, 171, .6));
+}
+
+.world-map-stage.is-real .wm-marker {
+  fill: #0b1f18;
+  stroke: #eafff5;
+  stroke-width: 2.5;
+  filter: drop-shadow(0 0 4px rgba(234, 255, 245, .8));
+}
+
+@media (max-width: 640px) {
+  .world-map-tag { display: none; }
+}
+
+/* Cartes de branche cliquables (ouvrent la liste du matériel). */
+.army-branch.is-market {
+  appearance: none;
+  width: 100%;
+  padding: 0;
+  border: 1px solid rgba(255, 255, 255, .12);
+  border-radius: 14px;
+  background: rgba(5, 13, 25, .34);
+  color: inherit;
+  text-align: left;
+  font: inherit;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition: border-color .18s ease, background .18s ease, transform .18s ease;
+}
+
+.army-branch.is-market:hover {
+  border-color: rgba(101, 199, 171, .55);
+  background: rgba(101, 199, 171, .1);
+  transform: translateY(-2px);
+}
+
+.army-branch.is-market:focus-visible {
+  outline: 2px solid var(--mint);
+  outline-offset: 2px;
+}
+
+.army-branch.is-market.is-open {
+  border-color: var(--mint);
+  background: rgba(101, 199, 171, .12);
+}
+
+.army-branch-open {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px solid rgba(255, 255, 255, .08);
+  color: var(--mint);
+  font-size: 10.5px;
+  font-weight: 800;
+  letter-spacing: .02em;
+}
+
+.army-chevron {
+  width: 16px;
+  height: 16px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: transform .2s ease;
+}
+
+.army-branch.is-open .army-chevron { transform: rotate(90deg); }
+
+/* Chaque branche est une cellule ; quand elle est ouverte, la liste de son
+   matériel s'affiche juste en dessous, en pleine largeur du panneau. */
+.army-branch-cell {
+  min-width: 0;
+}
+
+.army-branch-detail {
+  grid-column: 1 / -1;
+  min-width: 0;
+}
+
+.army-branch-detail .army-market {
+  margin-top: 2px;
+}
+
+.army-branch-detail .army-market-head h4 {
+  font-size: 16px;
+}
+
+@media (max-width: 640px) {
+  .army-branch-detail { grid-column: 1 / -1; }
+}

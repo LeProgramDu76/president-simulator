@@ -1,0 +1,4 @@
+/* Ajustement fin du badge du pays dans la bannière de gestion. */
+.country-badge {
+  transform: translateY(-5px);
+}

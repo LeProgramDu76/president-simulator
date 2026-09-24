@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#101827">
+  <title>Gestionnaire de pays</title>
+  <link rel="stylesheet" href="./styles.css">
+  <link rel="stylesheet" href="./treasury.css">
+  <link rel="stylesheet" href="./politics.css">
+  <link rel="stylesheet" href="./energy-crisis.css">
+  <link rel="stylesheet" href="./news.css">
+  <link rel="stylesheet" href="./dev-panel.css">
+  <link rel="stylesheet" href="./country-position.css">
+  <link rel="stylesheet" href="./country-availability.css">
+  <link rel="stylesheet" href="./stance.css">
+  <link rel="stylesheet" href="./usa.css">
+  <link rel="stylesheet" href="./army.css">
+  <link rel="stylesheet" href="./army-market.css">
+  <link rel="stylesheet" href="./production.css">
+  <link rel="stylesheet" href="./menu.css">
+  <link rel="stylesheet" href="./saves.css">
+  <link rel="stylesheet" href="./bank.css">
+  <link rel="stylesheet" href="./budget.css">
+  <link rel="stylesheet" href="./gdp-gauge.css">
+</head>
+<body>
+  <div id="app" class="app-shell is-menu">
+    <header class="topbar">
+      <div class="brand-lockup">
+        <div class="brand-mark" role="img" data-i18n-aria-label="app.title" aria-label="Gestionnaire de pays">
+          <span class="brand-glyph" aria-hidden="true">♛</span>
+        </div>
+        <div>
+          <p class="eyebrow" data-i18n="app.eyebrow">SIMULATION PRÉSIDENTIELLE</p>
+          <h1 data-i18n="app.title">Gestionnaire de pays</h1>
+        </div>
+      </div>
+      <div class="topbar-actions">
+        <button id="menuButton" class="button button-quiet" type="button" data-action="menu" data-i18n="actions.menu" hidden="">Menu</button>
+      </div>
+    </header>
+
+    <main class="page-grid">
+      <section class="main-column" aria-labelledby="turnHeading">
+        <div class="management-banner">
+          <div>
+            <p class="eyebrow" data-i18n="management.label">GESTION DU PAYS</p>
+            <h2 id="turnHeading" data-i18n="management.heading">Chaque décision compte.</h2>
+            <p id="countryValue" class="country-badge">🇫🇷 France</p>
+            <div id="countryTraits" class="country-traits-banner" hidden=""></div>
+            <div id="governmentApproval" class="government-approval" hidden=""></div>
+          </div>
+          <div class="turn-counter">
+            <span id="dayValue">15918</span>
+            <small id="managementCycle" data-i18n="management.cycle">Jour de simulation</small>
+            <button id="timePauseButton" class="button button-quiet time-pause is-paused" type="button" data-time-action="pause" aria-pressed="true">Reprendre</button>
+          </div>
+          <div class="clock-panel" aria-labelledby="clockTitle">
+            <div class="clock-heading">
+              <span id="clockTitle" class="clock-label" data-i18n="time.title">Heure de simulation</span>
+              <strong id="simulationClock" class="simulation-clock" aria-live="polite">03:50</strong>
+            </div>
+            <div class="time-controls" role="group" data-i18n-aria-label="time.controls" aria-label="Vitesse du temps">
+              <button class="time-mode" type="button" data-time-mode="normal" aria-pressed="false">
+                <span data-i18n="time.normal">1x</span>
+              </button>
+              <button class="time-mode" type="button" data-time-mode="x2" aria-pressed="false">
+                <span data-i18n="time.x2">2x</span>
+              </button>
+              <button class="time-mode" type="button" data-time-mode="x3" aria-pressed="false">
+                <span data-i18n="time.x3">3x</span>
+              </button>
+              <button class="time-mode" type="button" data-time-mode="x4" aria-pressed="false">
+                <span data-i18n="time.x4">4x</span>
+              </button>
+              <button class="time-mode is-active" type="button" data-time-mode="x5" aria-pressed="true">
+                <span data-i18n="time.x5">5x</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <section id="statsGrid" class="stats-grid" data-i18n-aria-label="stats.nationalIndicators" aria-label="Trésorerie publique et évolution"><button class="stat-card stat-card-button" type="button" data-open-bank="" aria-haspopup="dialog" aria-label="Ouvrir l’espace bancaire. Solde : 426 Md €. Stable">
+    <span class="stat-top"><span>Trésorerie publique</span><span class="stat-icon" style="color:var(--gold)" aria-hidden="true">€</span></span>
+    <span class="stat-value-row"><strong class="stat-number">426 Md €</strong><span class="treasury-trend is-stable" aria-label="Stable"><span class="treasury-trend-icon" aria-hidden="true">→</span><span>Stable</span></span></span>
+    <span class="stat-caption">Argent disponible de l’État</span>
+    <span class="treasury-subline"><span>Depuis la dernière évolution</span><strong class="treasury-total is-stable">Depuis le début : 0 Md €</strong></span>
+    <div class="treasury-chart" role="img" aria-label="Historique récent de la trésorerie publique"><span class="treasury-bar" style="--bar-height:48.0%" title="Jour 14239 : 426 Md €"></span><span class="treasury-bar" style="--bar-height:48.0%" title="Jour 14240 : 426 Md €"></span><span class="treasury-bar" style="--bar-height:48.0%" title="Jour 14241 : 426 Md €"></span><span class="treasury-bar" style="--bar-height:48.0%" title="Jour 14242 : 426 Md €"></span><span class="treasury-bar" style="--bar-height:48.0%" title="Jour 14243 : 426 Md €"></span><span class="treasury-bar" style="--bar-height:48.0%" title="Jour 14244 : 426 Md €"></span><span class="treasury-bar" style="--bar-height:48.0%" title="Jour 14245 : 426 Md €"></span><span class="treasury-bar" style="--bar-height:48.0%" title="Jour 14246 : 426 Md €"></span><span class="treasury-bar" style="--bar-height:48.0%" title="Jour 14247 : 426 Md €"></span><span class="treasury-bar" style="--bar-height:48.0%" title="Jour 14248 : 426 Md €"></span><span class="treasury-bar" style="--bar-height:48.0%" title="Jour 15917 : 426 Md €"></span><span class="treasury-bar is-current" style="--bar-height:48.0%" title="Jour 15918 : 426 Md €"></span></div>
+  </button></section>
+        <div id="categoryNav" aria-live="polite"></div>
+        <section id="economyPanel" class="economy-panel" aria-live="polite"></section>
+        <section id="eventPanel" class="event-panel" aria-live="polite"><div class="menu-panel">
+    <div class="menu-profile" role="img" aria-label="Profil du président">
+    <span class="menu-profile-fallback" aria-hidden="true">♛</span>
+    <img src="./unnamed.png" alt="" aria-hidden="true" decoding="async" referrerpolicy="no-referrer" onerror="this.remove()">
+  </div>
+    <a class="discord-menu-button" href="https://discord.gg/9TZTjKkNH" target="_blank" rel="noopener noreferrer" data-i18n-title="menu.discord" data-i18n-aria-label="menu.discord">
+      <svg class="discord-menu-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M19.54 5.32A16.8 16.8 0 0 0 15.42 4l-.5 1.02a15.2 15.2 0 0 0-5.84 0L8.58 4a16.8 16.8 0 0 0-4.12 1.32C1.84 9.24 1.14 13.05 1.49 16.8a16.9 16.9 0 0 0 5.07 2.58l1.24-1.7c-.68-.25-1.33-.57-1.94-.94l.48-.37c3.75 1.75 8.1 1.75 11.8 0l.49.37c-.62.37-1.27.69-1.95.94l1.24 1.7a16.9 16.9 0 0 0 5.08-2.58c.4-4.35-.69-8.12-3.46-11.48ZM8.71 15.56c-1.15 0-2.1-1.06-2.1-2.36s.93-2.37 2.1-2.37 2.12 1.07 2.1 2.37c0 1.3-.93 2.36-2.1 2.36Zm6.58 0c-1.15 0-2.1-1.06-2.1-2.36s.93-2.37 2.1-2.37 2.12 1.07 2.1 2.37c0 1.3-.93 2.36-2.1 2.36Z"></path></svg>
+      <span class="sr-only">Ouvrir Discord</span>
+    </a>
+    <div class="game-logo game-logo-menu" role="img" aria-label="Gestionnaire de pays"><span class="game-glyph" aria-hidden="true">♛</span><img src="./unnamed.png" alt="" aria-hidden="true" decoding="async" referrerpolicy="no-referrer" onerror="this.remove()"></div>
+    <p class="eyebrow">CENTRE DE GESTION</p>
+    <h2 class="event-title menu-title">Gérez votre pays.</h2>
+    <p class="event-description menu-description">Prenez des décisions, développez l'économie et réagissez aux crises.</p>
+    <p class="menu-version">Version 1.8.25.10</p>
+    <div class="menu-actions">
+      <button class="button button-primary menu-button" type="button" data-menu-action="play">
+        <span>Continuer la partie</span><span aria-hidden="true">→</span>
+      </button>
+      <button class="button button-secondary menu-button" type="button" data-menu-action="new">
+        <span>✦</span><span>Nouvelle partie</span>
+      </button>
+      <button class="button button-secondary menu-button" type="button" data-menu-action="settings">
+        <span>⚙</span><span>Réglages</span>
+      </button>
+      <button class="button button-secondary menu-button menu-dev-button" type="button" data-menu-action="dev-unlock">
+        <span>⌘</span><span>Débloquer le Mode dev</span>
+      </button>
+    </div>
+    <p class="resume-hint">Partie en cours : 🇫🇷 France · jour 15918</p>
+    <details class="save-manager" open="">
+    <summary class="save-manager-heading">
+      <div><p class="eyebrow">GESTION DES PARTIES</p><h3 id="saveManagerTitle">Sauvegardes</h3></div>
+      <span class="save-manager-heading-actions"><span class="save-count">0/5 utilisées</span><span class="save-toggle-icon" aria-hidden="true"></span></span>
+    </summary>
+    <div class="save-manager-content">
+      <p class="save-manager-hint">L’autosauvegarde protège votre partie. Gardez jusqu’à cinq sauvegardes manuelles.</p>
+      <div class="auto-save-card">
+        <span class="auto-save-icon" aria-hidden="true">↻</span>
+        <span><strong>Autosauvegarde</strong><small>Jour 15918 · dernière sauvegarde : 24 sept., 19:42</small></span>
+      </div>
+      <div class="save-slots"><article class="save-slot is-empty">
+      <div class="save-slot-heading"><span class="save-slot-number">1</span><strong>Sauvegarde 1</strong></div>
+      <p>Cet emplacement est libre.</p>
+      <button class="button button-secondary save-slot-action" type="button" data-save-save="" data-save-slot="1">Sauvegarder ici</button>
+    </article><article class="save-slot is-empty">
+      <div class="save-slot-heading"><span class="save-slot-number">2</span><strong>Sauvegarde 2</strong></div>
+      <p>Cet emplacement est libre.</p>
+      <button class="button button-secondary save-slot-action" type="button" data-save-save="" data-save-slot="2">Sauvegarder ici</button>
+    </article><article class="save-slot is-empty">
+      <div class="save-slot-heading"><span class="save-slot-number">3</span><strong>Sauvegarde 3</strong></div>
+      <p>Cet emplacement est libre.</p>
+      <button class="button button-secondary save-slot-action" type="button" data-save-save="" data-save-slot="3">Sauvegarder ici</button>
+    </article><article class="save-slot is-empty">
+      <div class="save-slot-heading"><span class="save-slot-number">4</span><strong>Sauvegarde 4</strong></div>
+      <p>Cet emplacement est libre.</p>
+      <button class="button button-secondary save-slot-action" type="button" data-save-save="" data-save-slot="4">Sauvegarder ici</button>
+    </article><article class="save-slot is-empty">
+      <div class="save-slot-heading"><span class="save-slot-number">5</span><strong>Sauvegarde 5</strong></div>
+      <p>Cet emplacement est libre.</p>
+      <button class="button button-secondary save-slot-action" type="button" data-save-save="" data-save-slot="5">Sauvegarder ici</button>
+    </article></div>
+    </div>
+  </details>
+  </div></section>
+      </section>
+
+      <aside id="journalPanel" class="journal-panel" aria-labelledby="journalHeading">
+        <div class="journal-heading">
+          <div>
+            <p class="eyebrow" data-i18n="journal.eyebrow">SALLE DE PRESSE</p>
+            <h2 id="journalHeading" data-i18n="journal.title">Journal du pays</h2>
+          </div>
+          <span class="live-dot" aria-hidden="true"></span>
+        </div>
+        <div id="journalList" class="journal-list"><article class="journal-entry journal-news" aria-label="Brève d’actualité sans conséquence"><div class="news-paper">
+        <div class="news-paper-top"><span class="news-masthead">Le Journal national</span><span class="news-category">Société</span></div>
+        <div class="journal-day">Jour 15914</div>
+        <h3 class="news-headline">Un record de fréquentation pour la bibliothèque</h3>
+        <p class="news-body">La bibliothèque municipale annonce une journée particulièrement animée et de nombreux nouveaux lecteurs.</p>
+        <div class="news-rule" aria-hidden="true"></div>
+        <small class="news-disclaimer">Brève informative · aucun effet sur la partie</small>
+      </div></article><article class="journal-entry journal-news" aria-label="Brève d’actualité sans conséquence"><div class="news-paper">
+        <div class="news-paper-top"><span class="news-masthead">Le Journal national</span><span class="news-category">Société</span></div>
+        <div class="journal-day">Jour 15912</div>
+        <h3 class="news-headline">Le savoir-faire local à l’honneur</h3>
+        <p class="news-body">Une foire artisanale rassemble créateurs, curieux et producteurs venus de toute la région.</p>
+        <div class="news-rule" aria-hidden="true"></div>
+        <small class="news-disclaimer">Brève informative · aucun effet sur la partie</small>
+      </div></article><article class="journal-entry journal-news" aria-label="Brève d’actualité sans conséquence"><div class="news-paper">
+        <div class="news-paper-top"><span class="news-masthead">Le Journal national</span><span class="news-category">Sciences</span></div>
+        <div class="journal-day">Jour 15909</div>
+        <h3 class="news-headline">Une équipe de recherche distinguée</h3>
+        <p class="news-body">Des chercheurs sont récompensés pour leurs travaux patients et leur contribution à la connaissance.</p>
+        <div class="news-rule" aria-hidden="true"></div>
+        <small class="news-disclaimer">Brève informative · aucun effet sur la partie</small>
+      </div></article><article class="journal-entry journal-news" aria-label="Brève d’actualité sans conséquence"><div class="news-paper">
+        <div class="news-paper-top"><span class="news-masthead">Le Journal national</span><span class="news-category">Société</span></div>
+        <div class="journal-day">Jour 15907</div>
+        <h3 class="news-headline">Le vieux train reprend du service</h3>
+        <p class="news-body">Une ligne historique célèbre son anniversaire avec un trajet spécial et quelques voitures restaurées.</p>
+        <div class="news-rule" aria-hidden="true"></div>
+        <small class="news-disclaimer">Brève informative · aucun effet sur la partie</small>
+      </div></article><article class="journal-entry journal-news" aria-label="Brève d’actualité sans conséquence"><div class="news-paper">
+        <div class="news-paper-top"><span class="news-masthead">Le Journal national</span><span class="news-category">Sciences</span></div>
+        <div class="journal-day">Jour 15902</div>
+        <h3 class="news-headline">Une équipe de recherche distinguée</h3>
+        <p class="news-body">Des chercheurs sont récompensés pour leurs travaux patients et leur contribution à la connaissance.</p>
+        <div class="news-rule" aria-hidden="true"></div>
+        <small class="news-disclaimer">Brève informative · aucun effet sur la partie</small>
+      </div></article><article class="journal-entry journal-news" aria-label="Brève d’actualité sans conséquence"><div class="news-paper">
+        <div class="news-paper-top"><span class="news-masthead">Le Journal national</span><span class="news-category">Sciences</span></div>
+        <div class="journal-day">Jour 15900</div>
+        <h3 class="news-headline">Le ciel sera dégagé ce soir</h3>
+        <p class="news-body">L’observatoire national invite les curieux à lever les yeux pour observer les étoiles.</p>
+        <div class="news-rule" aria-hidden="true"></div>
+        <small class="news-disclaimer">Brève informative · aucun effet sur la partie</small>
+      </div></article></div>
+        <div class="advice-note">
+          <span class="note-icon" aria-hidden="true">✦</span>
+          <p data-i18n="journal.advice">Chaque décision a des conséquences.</p>
+        </div>
+      </aside>
+    </main>
+    <div id="bankModal" hidden=""></div>
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  </div>
+  
+<script type="module" src="./main.js"></script>
+
+
+</body></html>

@@ -1,0 +1,182 @@
+/* Écran Mode dev ouvert depuis le menu de la partie. */
+.is-dev .page-grid {
+  grid-template-columns: minmax(0, 760px);
+  justify-content: center;
+}
+
+.is-dev .management-banner,
+.is-dev .stats-grid,
+.is-dev .journal-panel,
+.is-dev .economy-panel {
+  display: none;
+}
+
+.is-dev .event-panel {
+  display: block;
+  min-height: 510px;
+}
+
+.dev-screen-panel {
+  width: min(100%, 700px);
+  margin: 0 auto;
+}
+
+.dev-screen-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 18px;
+  margin-bottom: 18px;
+}
+
+.dev-screen-heading .event-kicker {
+  margin-bottom: 10px;
+}
+
+.dev-screen-heading .event-title,
+.dev-screen-heading .event-description {
+  margin-right: 0;
+  margin-left: 0;
+}
+
+.dev-screen-badge {
+  display: inline-flex;
+  min-height: 28px;
+  align-items: center;
+  flex: 0 0 auto;
+  padding: 5px 9px;
+  border: 1px solid rgba(101, 199, 171, .45);
+  border-radius: 999px;
+  color: var(--mint);
+  background: rgba(101, 199, 171, .1);
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: .12em;
+}
+
+.dev-screen-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+  margin-top: 14px;
+}
+
+.dev-screen-actions .button {
+  flex: 1 1 220px;
+}
+
+/* Le bouton de retour de l’onglet Code est séparé des outils. */
+.code-back-button,
+.dev-code-back-button {
+  margin-top: 28px;
+}
+
+.dev-disable-button {
+  width: 100%;
+  margin-top: 10px;
+}
+
+@media (max-width: 520px) {
+  .is-dev .event-panel {
+    min-height: 0;
+  }
+
+  .dev-screen-heading {
+    gap: 10px;
+  }
+
+  .dev-screen-heading .event-title {
+    font-size: 26px;
+  }
+
+  .dev-screen-badge {
+    padding: 5px 7px;
+    font-size: 9px;
+  }
+}
+
+/* Tableau intermédiaire ouvert par le bouton Menu pendant la partie. */
+.is-pause-menu .page-grid {
+  grid-template-columns: minmax(0, 760px);
+  justify-content: center;
+}
+
+.is-pause-menu .management-banner,
+.is-pause-menu .stats-grid,
+.is-pause-menu .journal-panel,
+.is-pause-menu .economy-panel,
+.is-pause-menu #categoryNav {
+  display: none;
+}
+
+.is-pause-menu .event-panel {
+  display: grid;
+  min-height: 510px;
+  align-items: center;
+}
+
+.pause-menu-panel {
+  width: min(100%, 560px);
+}
+
+.pause-menu-mark {
+  display: grid;
+  width: 64px;
+  height: 64px;
+  place-items: center;
+  margin: 0 auto 20px;
+  border: 1px solid rgba(238, 189, 99, .5);
+  border-radius: 18px;
+  color: var(--navy-deep);
+  background: var(--gold);
+  box-shadow: 0 14px 30px rgba(238, 189, 99, .14);
+  font-size: 28px;
+  font-weight: 900;
+  letter-spacing: -.12em;
+}
+
+.pause-menu-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin: 28px auto 0;
+}
+
+.pause-menu-card {
+  display: flex;
+  min-height: 92px;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  padding: 15px 12px;
+  text-align: center;
+}
+
+.pause-menu-card-icon {
+  color: var(--gold);
+  font-size: 19px;
+  line-height: 1;
+}
+
+.pause-menu-card.button-primary .pause-menu-card-icon {
+  color: var(--navy-deep);
+}
+
+@media (max-width: 520px) {
+  .is-pause-menu .event-panel {
+    min-height: 0;
+  }
+
+  .pause-menu-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 9px;
+    margin-top: 22px;
+  }
+
+  .pause-menu-card {
+    min-height: 58px;
+    justify-content: flex-start;
+    padding: 12px 16px;
+    text-align: left;
+  }
+}

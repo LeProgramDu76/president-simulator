@@ -1,0 +1,89 @@
+/* Jauge du PIB : indice économique de 0 à 2000 points. */
+.gdp-gauge {
+  margin: 0 0 14px;
+  padding: 13px 14px;
+  border: 1px solid rgba(93, 143, 246, .28);
+  border-radius: 13px;
+  background: linear-gradient(180deg, rgba(55, 84, 148, .22), rgba(29, 44, 79, .3));
+  overflow: hidden;
+}
+
+.gdp-gauge-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.gdp-gauge-title .eyebrow { color: var(--sky); }
+.gdp-gauge-title strong { display: block; margin-top: 3px; color: var(--ink); font-size: 15px; letter-spacing: -.02em; }
+
+.gdp-gauge-level {
+  flex: 0 0 auto;
+  padding: 4px 10px;
+  border: 1px solid rgba(255, 255, 255, .14);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, .07);
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.gdp-gauge-level.is-coral { color: #ffb3aa; border-color: rgba(242, 107, 94, .55); background: rgba(242, 107, 94, .14); }
+.gdp-gauge-level.is-gold { color: var(--gold); border-color: rgba(238, 189, 99, .5); background: rgba(238, 189, 99, .12); }
+.gdp-gauge-level.is-sky { color: var(--sky); border-color: rgba(93, 143, 246, .5); background: rgba(93, 143, 246, .12); }
+.gdp-gauge-level.is-mint { color: var(--mint); border-color: rgba(64, 200, 150, .5); background: rgba(64, 200, 150, .12); }
+
+.gdp-gauge-main {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 13px;
+}
+
+.gdp-gauge-number {
+  flex: 0 0 auto;
+  color: var(--ink);
+  font-size: 26px;
+  letter-spacing: -.04em;
+  font-variant-numeric: tabular-nums;
+}
+
+.gdp-gauge-number small { color: var(--muted); font-size: 11px; font-weight: 700; letter-spacing: 0; }
+
+.gdp-gauge-track {
+  position: relative;
+  flex: 1 1 auto;
+  height: 10px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, .08);
+  overflow: hidden;
+}
+
+.gdp-gauge-track i { display: block; height: 100%; border-radius: 999px; }
+.gdp-gauge-track.is-coral i { background: linear-gradient(90deg, rgba(242, 107, 94, .75), #ff8a7a); }
+.gdp-gauge-track.is-gold i { background: linear-gradient(90deg, rgba(238, 189, 99, .75), #f3ce7e); }
+.gdp-gauge-track.is-sky i { background: linear-gradient(90deg, rgba(93, 143, 246, .75), #8fb1ff); }
+.gdp-gauge-track.is-mint i { background: linear-gradient(90deg, rgba(64, 200, 150, .75), #6fdfb0); }
+
+.gdp-gauge-scale {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 6px;
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.gdp-gauge-hint {
+  margin: 11px 0 0;
+  padding-top: 9px;
+  border-top: 1px solid rgba(255, 255, 255, .08);
+  color: var(--muted);
+  font-size: 10.5px;
+  line-height: 1.5;
+}
+
+@media (max-width: 420px) {
+  .gdp-gauge-main { flex-direction: column; align-items: stretch; gap: 8px; }
+  .gdp-gauge-number { text-align: center; }
+}

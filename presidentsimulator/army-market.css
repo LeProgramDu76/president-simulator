@@ -1,0 +1,719 @@
+/* Styles du marché du matériel militaire : liste détaillée par type,
+   inventaire complet et panneau « Marché » (recherche + onglets pays). */
+
+/* Panneau du marché du matériel (liste détaillée). */
+.army-market {
+  margin-top: 14px;
+  padding: 15px;
+  border: 1px solid rgba(101, 199, 171, .3);
+  border-radius: 16px;
+  background: linear-gradient(135deg, rgba(23, 34, 53, .7), rgba(5, 13, 25, .6));
+}
+
+.army-market-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.army-market-head .eyebrow { color: var(--mint); }
+.army-market-head h4 { margin: 3px 0 0; font-size: 18px; letter-spacing: -.02em; }
+
+.army-market-treasury {
+  flex: 0 0 auto;
+  padding: 6px 11px;
+  border: 1px solid rgba(101, 199, 171, .32);
+  border-radius: 999px;
+  background: rgba(101, 199, 171, .1);
+  color: var(--mint);
+  font-size: 11px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.army-market-hint {
+  margin: 0 0 12px;
+  color: var(--muted);
+  font-size: 11.5px;
+  line-height: 1.5;
+}
+
+.army-market-list {
+  display: grid;
+  gap: 9px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.army-market-sep {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 2px 0 -2px;
+  padding: 0 2px;
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.army-market-sep::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(255, 255, 255, .18), transparent);
+}
+
+.army-market-empty {
+  display: grid;
+  place-items: center;
+  min-height: 72px;
+  padding: 14px;
+  border: 1px dashed rgba(255, 255, 255, .16);
+  border-radius: 12px;
+  background: rgba(5, 13, 25, .28);
+  color: var(--muted);
+  font-size: 12.5px;
+  line-height: 1.5;
+  text-align: center;
+}
+
+.army-market-item {
+  display: grid;
+  grid-template-columns: 92px minmax(0, 1fr) auto auto;
+  gap: 14px;
+  align-items: center;
+  min-width: 0;
+  padding: 10px;
+  border: 1px solid rgba(255, 255, 255, .1);
+  border-radius: 13px;
+  background: rgba(5, 13, 25, .36);
+}
+
+.army-market-media {
+  position: relative;
+  width: 92px;
+  height: 64px;
+  border-radius: 10px;
+  overflow: hidden;
+  background: radial-gradient(circle at 50% 40%, rgba(101, 199, 171, .18), rgba(5, 13, 25, .5) 70%);
+}
+
+.army-market-photo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.army-market-media .army-branch-icon {
+  position: absolute;
+  left: 7px;
+  top: 7px;
+  width: 30px;
+  height: 30px;
+}
+
+.army-market-media .army-branch-svg { width: 18px; height: 18px; }
+.army-market-media.is-plain { display: grid; place-items: center; }
+.army-market-media.is-plain .army-branch-icon { position: static; width: 40px; height: 40px; }
+.army-market-media.is-plain .army-branch-svg { width: 22px; height: 22px; }
+
+.army-market-copy {
+  display: grid;
+  gap: 3px;
+  min-width: 0;
+}
+
+.army-market-copy strong {
+  font-size: 13.5px;
+  letter-spacing: -.01em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.army-market-desc {
+  color: var(--muted);
+  font-size: 10.5px;
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.army-market-price {
+  color: var(--mint);
+  font-size: 10.5px;
+  font-style: normal;
+  font-weight: 800;
+}
+
+.army-market-qty {
+  display: grid;
+  gap: 2px;
+  min-width: 46px;
+  text-align: right;
+}
+
+.army-market-qty small {
+  color: var(--muted);
+  font-size: 8.5px;
+  font-weight: 800;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+
+.army-market-qty strong {
+  font-size: 15px;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.army-market-qty small { white-space: nowrap; }
+
+/* Vue flotte : deux compteurs par modèle — en service (vert) et hors
+   service (maintenance, gris). */
+.army-market-qty-group {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 6px 14px;
+  justify-self: end;
+  min-width: 0;
+  max-width: 100%;
+}
+
+.army-market-qty-group .army-market-qty.is-service {
+  min-width: 34px;
+}
+
+.army-market-qty.is-service strong.is-in {
+  color: var(--mint, #65c7ab);
+}
+
+.army-market-qty.is-service strong.is-out {
+  color: var(--muted, #8b95a3);
+}
+
+@media (max-width: 400px) {
+  .army-market-qty-group {
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 3px;
+  }
+}
+
+.army-market-actions {
+  display: grid;
+  grid-template-columns: repeat(2, 36px);
+  gap: 6px;
+  min-width: 0;
+}
+
+/* Un seul bouton (vendre OU acheter) : la cellule se réduit à une colonne. */
+.army-market-actions:has(> :only-child) {
+  grid-template-columns: 36px;
+}
+
+.army-market-btn {
+  display: grid;
+  width: 36px;
+  height: 36px;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, .14);
+  border-radius: 11px;
+  background: rgba(255, 255, 255, .06);
+  color: var(--ink);
+  font-size: 18px;
+  font-weight: 800;
+  line-height: 1;
+  cursor: pointer;
+  transition: transform .12s ease, background .15s ease, border-color .15s ease;
+}
+
+.army-market-btn:hover:not(:disabled) { transform: translateY(-1px); }
+
+.army-market-btn.is-buy {
+  border-color: rgba(101, 199, 171, .45);
+  color: var(--mint);
+  background: rgba(101, 199, 171, .12);
+}
+
+.army-market-btn.is-sell {
+  border-color: rgba(255, 139, 133, .4);
+  color: #ff8b85;
+  background: rgba(255, 139, 133, .1);
+}
+
+.army-market-btn:disabled {
+  opacity: .32;
+  cursor: not-allowed;
+}
+
+.army-market-btn:focus-visible {
+  outline: 2px solid var(--mint);
+  outline-offset: 2px;
+}
+
+@media (max-width: 560px) {
+  .army-market-item {
+    grid-template-columns: 76px minmax(0, 1fr) auto;
+    gap: 10px;
+  }
+  .army-market-item.is-view {
+    grid-template-columns: 64px minmax(0, 1fr) auto auto;
+  }
+  .army-market-media { width: 76px; height: 58px; }
+  .army-market-actions { grid-template-columns: repeat(2, 32px); }
+  .army-market-actions:has(> :only-child) { grid-template-columns: 32px; }
+  .army-market-btn { width: 32px; height: 32px; font-size: 16px; }
+  .army-market-treasury { font-size: 10px; padding: 5px 9px; }
+}
+
+@media (max-width: 400px) {
+  .army-market-item { grid-template-columns: 64px minmax(0, 1fr); }
+  .army-market-item.is-view { grid-template-columns: 56px minmax(0, 1fr) auto auto; }
+  .army-market-actions { grid-template-columns: repeat(2, 34px); }
+  .army-market-btn { width: 34px; height: 34px; }
+}
+
+/* Inventaire complet : bouton pour tout lister + sections par catégorie. */
+.army-inventory-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  width: 100%;
+  margin-top: 14px;
+  padding: 13px 15px;
+  border: 1px solid rgba(101, 199, 171, .32);
+  border-radius: 14px;
+  background: rgba(101, 199, 171, .08);
+  color: var(--mint);
+  font-size: 12.5px;
+  font-weight: 800;
+  letter-spacing: .02em;
+  text-align: left;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition: border-color .18s ease, background .18s ease;
+}
+
+.army-inventory-toggle:hover {
+  border-color: var(--mint);
+  background: rgba(101, 199, 171, .14);
+}
+
+.army-inventory-toggle:focus-visible {
+  outline: 2px solid var(--mint);
+  outline-offset: 2px;
+}
+
+.army-inventory-toggle.is-open .army-chevron { transform: rotate(90deg); }
+
+.army-inventory {
+  display: grid;
+  gap: 14px;
+  margin-top: 14px;
+}
+
+.army-inventory-head {
+  padding: 4px 2px 0;
+}
+
+.army-inventory-head .eyebrow { color: var(--mint); }
+.army-inventory-head h4 { margin: 3px 0 4px; font-size: 19px; letter-spacing: -.02em; }
+
+.army-inventory-count {
+  margin: 0;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.army-inventory .army-market { margin-top: 0; }
+
+@media (max-width: 400px) {
+  .army-inventory-toggle { font-size: 11.5px; padding: 12px 13px; }
+}
+
+/* Panneau « Marché » : cartes par type d'équipement avec flèche d'ouverture. */
+.market-panel {
+  display: grid;
+  gap: 14px;
+}
+
+/* Barre d'outils : recherche d'équipement. */
+.market-toolbar {
+  display: grid;
+  gap: 10px;
+}
+
+.market-search {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.market-search-icon {
+  position: absolute;
+  left: 13px;
+  color: var(--muted);
+  font-size: 14px;
+  pointer-events: none;
+}
+
+.market-search-input {
+  width: 100%;
+  padding: 12px 40px 12px 38px;
+  border: 1px solid rgba(255, 255, 255, .14);
+  border-radius: 13px;
+  background: rgba(5, 13, 25, .4);
+  color: var(--ink);
+  font: inherit;
+  font-size: 13.5px;
+  transition: border-color .18s ease, background .18s ease;
+}
+
+.market-search-input::placeholder { color: var(--muted); }
+
+.market-search-input:focus-visible {
+  outline: none;
+  border-color: var(--mint);
+  background: rgba(5, 13, 25, .6);
+}
+
+.market-search-clear {
+  position: absolute;
+  right: 9px;
+  display: grid;
+  width: 28px;
+  height: 28px;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, .14);
+  border-radius: 9px;
+  background: rgba(255, 255, 255, .06);
+  color: var(--muted);
+  font-size: 17px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.market-search-clear:hover { color: var(--ink); }
+
+.market-search-clear:focus-visible {
+  outline: 2px solid var(--mint);
+  outline-offset: 1px;
+}
+
+/* Onglets pays (France, USA, Allemagne, Russie). */
+.market-country-tabs {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 8px;
+}
+
+.market-country-tab {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  min-width: 0;
+  padding: 10px 10px;
+  border: 1px solid rgba(255, 255, 255, .12);
+  border-radius: 12px;
+  background: rgba(5, 13, 25, .34);
+  color: var(--muted);
+  font-size: 11.5px;
+  font-weight: 700;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition: border-color .18s ease, color .18s ease, background .18s ease;
+}
+
+.market-country-tab:hover {
+  border-color: rgba(101, 199, 171, .4);
+  color: var(--ink);
+}
+
+.market-country-tab.is-active {
+  border-color: var(--mint);
+  background: rgba(101, 199, 171, .14);
+  color: var(--ink);
+}
+
+.market-country-tab:focus-visible {
+  outline: 2px solid var(--mint);
+  outline-offset: 2px;
+}
+
+.market-country-flag { font-size: 17px; line-height: 1; }
+
+.market-country-own {
+  padding: 2px 6px;
+  border-radius: 999px;
+  background: rgba(101, 199, 171, .18);
+  color: var(--mint);
+  font-size: 8.5px;
+  font-style: normal;
+  font-weight: 800;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+}
+
+.market-country-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(175px, 1fr));
+  gap: 12px;
+}
+
+/* État vide de la recherche. */
+.market-empty {
+  padding: 26px 18px;
+  border: 1px dashed rgba(255, 255, 255, .14);
+  border-radius: 16px;
+  background: rgba(5, 13, 25, .28);
+  text-align: center;
+}
+
+.market-empty .eyebrow { color: var(--mint); }
+.market-empty h4 { margin: 4px 0 6px; font-size: 17px; letter-spacing: -.02em; }
+.market-empty p { margin: 0; color: var(--muted); font-size: 12.5px; line-height: 1.5; }
+
+/* Total des résultats de recherche. */
+.market-search-total {
+  padding: 8px 13px;
+  border: 1px solid rgba(101, 199, 171, .26);
+  border-radius: 999px;
+  background: rgba(101, 199, 171, .08);
+  color: var(--mint);
+  font-size: 11.5px;
+  font-weight: 700;
+  justify-self: start;
+}
+
+.market-search-group { margin-top: 0; }
+
+/* Badge « consultation » pour les pays non joués. */
+.army-market-readonly {
+  justify-self: end;
+  padding: 6px 10px;
+  border: 1px solid rgba(148, 163, 184, .35);
+  border-radius: 999px;
+  background: rgba(148, 163, 184, .1);
+  color: #94a3b8;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.market-treasury {
+  justify-self: start;
+  padding: 7px 13px;
+  border: 1px solid rgba(101, 199, 171, .32);
+  border-radius: 999px;
+  background: rgba(101, 199, 171, .1);
+  color: var(--mint);
+  font-size: 11.5px;
+  font-weight: 800;
+}
+
+.market-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(175px, 1fr));
+  gap: 12px;
+}
+
+.market-card {
+  display: grid;
+  gap: 10px;
+  min-width: 0;
+  padding: 10px;
+  border: 1px solid rgba(255, 255, 255, .1);
+  border-radius: 15px;
+  background: rgba(5, 13, 25, .36);
+  transition: border-color .2s ease;
+}
+
+.market-card.is-open { border-color: rgba(101, 199, 171, .5); }
+
+.market-card-media {
+  position: relative;
+  height: 108px;
+  border-radius: 11px;
+  overflow: hidden;
+  background: radial-gradient(circle at 50% 40%, rgba(101, 199, 171, .18), rgba(5, 13, 25, .5) 70%);
+}
+
+.market-card-photo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.market-card-media .army-branch-icon { position: absolute; left: 8px; top: 8px; }
+
+.market-card-media.is-plain { display: grid; place-items: center; }
+.market-card-media.is-plain .army-branch-icon { position: static; width: 48px; height: 48px; }
+.market-card-media.is-plain .army-branch-svg { width: 26px; height: 26px; }
+
+.market-card-copy {
+  display: grid;
+  gap: 3px;
+  padding: 0 2px;
+}
+
+.market-card-copy strong {
+  font-size: 14.5px;
+  letter-spacing: -.01em;
+}
+
+.market-card-copy span {
+  color: var(--muted);
+  font-size: 11.5px;
+}
+
+.market-card-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid rgba(101, 199, 171, .28);
+  border-radius: 10px;
+  background: rgba(101, 199, 171, .08);
+  color: var(--mint);
+  font-size: 11.5px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: background .2s ease, border-color .2s ease;
+}
+
+.market-card-toggle:hover {
+  border-color: var(--mint);
+  background: rgba(101, 199, 171, .16);
+}
+
+.market-card-toggle:focus-visible {
+  outline: 2px solid var(--mint);
+  outline-offset: 2px;
+}
+
+.market-card.is-open .army-chevron { transform: rotate(90deg); }
+.market-panel .army-market { margin-top: 0; }
+
+@media (max-width: 520px) {
+  .market-cards { grid-template-columns: repeat(auto-fill, minmax(148px, 1fr)); }
+}
+
+/* Vue « Matériel en service » (panneau Armée) : lecture seule, sans boutique. */
+.army-market.is-view {
+  border-color: rgba(148, 163, 184, .28);
+  background: linear-gradient(135deg, rgba(38, 50, 67, .5), rgba(5, 13, 25, .55));
+}
+
+.army-market.is-view .eyebrow { color: #94a3b8; }
+
+.army-market-item.is-view {
+  grid-template-columns: 76px minmax(0, 1fr) auto auto;
+}
+
+.army-market-item.is-view .army-market-price { display: none; }
+
+.army-view-tag {
+  justify-self: end;
+  padding: 5px 10px;
+  border: 1px solid rgba(148, 163, 184, .32);
+  border-radius: 999px;
+  background: rgba(148, 163, 184, .1);
+  color: #a9b4c2;
+  font-size: 9.5px;
+  font-weight: 800;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+/* Vue « Matériel en service » : sur écrans étroits, les compteurs (en
+   service / hors service) et le badge passent sous le texte, à côté de
+   l'image, pour ne jamais chevaucher ni les mots ni les chiffres. */
+@media (max-width: 720px) {
+  .army-market-item.is-view {
+    grid-template-columns: 64px minmax(0, 1fr);
+    grid-template-areas:
+      "media copy"
+      "media qty"
+      "media tag";
+    gap: 9px 12px;
+    align-items: start;
+  }
+  .army-market-item.is-view .army-market-media {
+    grid-area: media;
+    width: 64px;
+    align-self: start;
+  }
+  .army-market-item.is-view .army-market-copy { grid-area: copy; }
+  .army-market-item.is-view .army-market-qty-group {
+    grid-area: qty;
+    justify-self: start;
+    justify-content: flex-start;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  .army-market-item.is-view .army-view-tag {
+    grid-area: tag;
+    justify-self: start;
+  }
+}
+
+@media (max-width: 400px) {
+  .army-market-item.is-view {
+    grid-template-columns: 56px minmax(0, 1fr);
+    gap: 8px 10px;
+  }
+  .army-market-item.is-view .army-market-media { width: 56px; }
+}
+
+/* Barre boutique du Marché : trésorerie + consigne d'achat/vente. */
+.market-shop-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  padding: 12px 15px;
+  border: 1px solid rgba(101, 199, 171, .34);
+  border-radius: 14px;
+  background: linear-gradient(135deg, rgba(101, 199, 171, .14), rgba(23, 34, 53, .4));
+}
+
+.market-shop-treasury {
+  color: var(--mint);
+  font-size: 12.5px;
+  font-weight: 900;
+  letter-spacing: -.01em;
+}
+
+.market-shop-hint {
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.45;
+}
+
+@media (max-width: 520px) {
+  .market-shop-bar { align-items: flex-start; flex-direction: column; gap: 6px; }
+}

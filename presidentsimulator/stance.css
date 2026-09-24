@@ -1,0 +1,123 @@
+/* Sélecteur de mode de départ (Facile / Normal / Hardcore). */
+.stance-picker {
+  margin: 6px 0 4px;
+  padding: 14px 16px 16px;
+  border: 1px solid var(--line, rgba(148, 163, 184, .22));
+  border-radius: 18px;
+  background: rgba(23, 34, 55, .55);
+}
+
+.stance-label {
+  margin: 0 0 10px;
+  color: var(--text-muted, #a6b3c7);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+
+.stance-options {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.stance-option {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 10px;
+  align-items: start;
+  min-height: 84px;
+  padding: 12px;
+  border: 2px solid rgba(148, 163, 184, .2);
+  border-radius: 14px;
+  color: #eef2f6;
+  text-align: left;
+  background: #0f1727;
+  cursor: pointer;
+  transition: transform .16s ease, border-color .16s ease, box-shadow .16s ease, background-color .16s ease;
+}
+
+.stance-option:hover,
+.stance-option:focus-visible {
+  border-color: rgba(238, 189, 99, .6);
+  transform: translateY(-1px);
+}
+
+.stance-option.is-active {
+  border-color: var(--gold, #eebd63);
+  background: #1b2740;
+  box-shadow: 0 0 0 3px rgba(238, 189, 99, .14);
+}
+
+.stance-option.is-active.coral {
+  border-color: #ef8a78;
+  box-shadow: 0 0 0 3px rgba(239, 138, 120, .16);
+}
+
+.stance-option.is-active.mint {
+  border-color: #7fd8b4;
+  box-shadow: 0 0 0 3px rgba(127, 216, 180, .16);
+}
+
+.stance-option.is-active.sky {
+  border-color: #78b8dc;
+  box-shadow: 0 0 0 3px rgba(120, 184, 220, .16);
+}
+
+.stance-icon {
+  display: grid;
+  width: 34px;
+  height: 34px;
+  place-items: center;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 900;
+}
+
+.stance-option.coral .stance-icon {
+  color: #ffd9d1;
+  background: rgba(239, 138, 120, .18);
+}
+
+.stance-option.mint .stance-icon {
+  color: #d3f7e8;
+  background: rgba(127, 216, 180, .18);
+}
+
+.stance-option.sky .stance-icon {
+  color: #d8edf8;
+  background: rgba(120, 184, 220, .18);
+}
+
+.stance-copy {
+  display: grid;
+  gap: 3px;
+}
+
+.stance-copy strong {
+  font-size: 14px;
+  line-height: 1.2;
+}
+
+.stance-copy span {
+  color: var(--text-muted, #a6b3c7);
+  font-size: 11.5px;
+  line-height: 1.35;
+}
+
+@media (max-width: 760px) {
+  .stance-options {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 520px) {
+  .stance-options {
+    grid-template-columns: 1fr;
+  }
+
+  .stance-option {
+    min-height: 64px;
+  }
+}

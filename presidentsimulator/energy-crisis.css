@@ -1,0 +1,147 @@
+.energy-crisis-briefing {
+  margin: -8px 0 27px;
+  padding: 16px;
+  border: 1px solid rgba(238, 189, 99, .3);
+  border-radius: 16px;
+  background: linear-gradient(135deg, rgba(238, 189, 99, .12), rgba(38, 61, 91, .32));
+}
+.energy-briefing-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+.energy-briefing-eyebrow {
+  margin: 0 0 5px;
+  color: var(--gold);
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: .13em;
+}
+.energy-briefing-top h3 {
+  margin: 0;
+  color: var(--ink);
+  font-size: 18px;
+  letter-spacing: -.025em;
+}
+.energy-alert-pill {
+  flex: 0 0 auto;
+  padding: 6px 8px;
+  border: 1px solid rgba(246, 125, 108, .4);
+  border-radius: 999px;
+  color: #ffb7a9;
+  background: rgba(246, 125, 108, .12);
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+.energy-briefing-summary {
+  margin: 11px 0 14px;
+  color: #c2ccda;
+  font-size: 13px;
+  line-height: 1.55;
+}
+.energy-facts {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+.energy-fact {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  min-height: 53px;
+  padding: 9px;
+  border: 1px solid rgba(255, 255, 255, .08);
+  border-radius: 11px;
+  background: rgba(8, 17, 31, .3);
+}
+.energy-fact-icon {
+  display: grid;
+  width: 28px;
+  height: 28px;
+  flex: 0 0 28px;
+  place-items: center;
+  border-radius: 8px;
+  color: var(--gold);
+  background: rgba(238, 189, 99, .14);
+  font-size: 15px;
+}
+.energy-fact strong,
+.energy-fact small {
+  display: block;
+}
+.energy-fact strong {
+  color: var(--ink);
+  font-size: 12px;
+}
+.energy-fact small {
+  margin-top: 2px;
+  color: var(--muted);
+  font-size: 10px;
+  line-height: 1.25;
+}
+.energy-budget {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 10px;
+  padding: 10px 11px;
+  border-radius: 10px;
+  color: var(--muted);
+  background: rgba(12, 25, 44, .5);
+  font-size: 11px;
+}
+.energy-budget strong {
+  color: var(--sky);
+  text-align: right;
+}
+.energy-callout {
+  display: flex;
+  gap: 9px;
+  margin: 12px 0 0;
+  color: #e6d9b9;
+  font-size: 12px;
+  line-height: 1.5;
+}
+.energy-callout span {
+  display: grid;
+  width: 18px;
+  height: 18px;
+  flex: 0 0 18px;
+  place-items: center;
+  border-radius: 50%;
+  color: var(--navy-deep);
+  background: var(--gold);
+  font-weight: 900;
+}
+.energy-choice-note {
+  display: block;
+  margin-top: 6px;
+  color: #8f9caf;
+  font-size: 11px;
+  line-height: 1.4;
+}
+.energy-choice-note span {
+  display: inline;
+  color: var(--gold);
+  font-weight: 800;
+}
+@media (max-width: 560px) {
+  .energy-briefing-top {
+    display: block;
+  }
+  .energy-alert-pill {
+    display: inline-block;
+    margin-top: 9px;
+  }
+  .energy-budget {
+    display: block;
+  }
+  .energy-budget strong {
+    display: block;
+    margin-top: 3px;
+    text-align: left;
+  }
+}

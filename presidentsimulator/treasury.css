@@ -1,0 +1,90 @@
+.stat-card-button {
+  position: relative;
+}
+
+.stat-value-row {
+  flex-wrap: wrap;
+  row-gap: 4px;
+}
+
+.treasury-trend {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  min-height: 24px;
+  padding: 4px 7px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 850;
+  letter-spacing: -.01em;
+  white-space: nowrap;
+}
+
+.treasury-trend.is-up {
+  color: #9cf0c9;
+  background: rgba(82, 220, 157, .14);
+}
+
+.treasury-trend.is-down {
+  color: #ffaaa7;
+  background: rgba(255, 119, 113, .14);
+}
+
+.treasury-trend.is-stable {
+  color: #b7c4d2;
+  background: rgba(183, 196, 210, .12);
+}
+
+.treasury-trend-icon {
+  font-size: 15px;
+  line-height: 1;
+}
+
+.treasury-subline {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 8px;
+  color: var(--muted);
+  font-size: 10px;
+  line-height: 1.35;
+}
+
+.treasury-total.is-up { color: #9cf0c9; }
+.treasury-total.is-down { color: #ffaaa7; }
+.treasury-total.is-stable { color: var(--muted); }
+
+.treasury-chart {
+  display: flex;
+  align-items: end;
+  gap: 3px;
+  height: 28px;
+  margin-top: 10px;
+  padding: 5px 0 0;
+}
+
+.treasury-bar {
+  min-width: 5px;
+  flex: 1;
+  height: var(--bar-height);
+  border-radius: 3px 3px 1px 1px;
+  background: linear-gradient(180deg, #79d9ba, rgba(121, 217, 186, .35));
+  opacity: .78;
+}
+
+.treasury-bar.is-current {
+  background: linear-gradient(180deg, #f0c36e, rgba(240, 195, 110, .45));
+  opacity: 1;
+}
+
+@media (max-width: 600px) {
+  .treasury-trend {
+    min-height: 21px;
+    padding: 3px 6px;
+    font-size: 9px;
+  }
+
+  .treasury-trend-icon { font-size: 13px; }
+  .treasury-subline { font-size: 9px; }
+}

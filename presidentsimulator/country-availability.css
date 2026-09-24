@@ -1,0 +1,62 @@
+.country-card.is-coming-soon {
+  position: relative;
+  cursor: not-allowed;
+}
+
+.country-card.is-coming-soon:hover,
+.country-card.is-coming-soon:focus-visible {
+  border-color: var(--line);
+  background: var(--panel-light);
+  transform: none;
+}
+
+.country-card.is-coming-soon > .country-flag,
+.country-card.is-coming-soon > .country-arrow,
+.country-card.is-coming-soon .country-copy > :not(.country-status) {
+  filter: grayscale(1);
+  opacity: .48;
+}
+
+.country-card.is-coming-soon .country-status {
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  left: 50%;
+  display: inline-flex;
+  width: max-content;
+  max-width: calc(100% - 28px);
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 11px 20px;
+  border: 2px solid rgba(154,166,183,.58);
+  border-radius: 999px;
+  color: #eef2f6;
+  background: rgba(38, 50, 67, .94);
+  box-shadow: 0 8px 20px rgba(5, 10, 18, .28);
+  font-size: 18px;
+  font-weight: 900;
+  letter-spacing: .12em;
+  line-height: 1;
+  text-transform: uppercase;
+  transform: translate(-50%, -50%);
+}
+
+/* Badge compact pour la catégorie Armée encore indisponible. */
+.category-button[data-category="army"] .category-status {
+  padding: 2px 4px;
+  font-size: 7px;
+  letter-spacing: .04em;
+}
+
+@media (max-width: 600px) {
+  .country-card.is-coming-soon .country-status {
+    padding: 9px 15px;
+    font-size: 15px;
+  }
+
+  .category-button[data-category="army"] .category-status {
+    padding: 2px 3px;
+    font-size: 6px;
+  }
+}

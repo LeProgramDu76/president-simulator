@@ -1,0 +1,254 @@
+.stat-card-button {
+  display: block;
+  width: 100%;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition: border-color .18s ease, background-color .18s ease, transform .18s ease, box-shadow .18s ease;
+}
+
+.stat-card-button:hover {
+  border-color: rgba(125, 211, 252, .58);
+  background: rgba(31, 48, 73, .96);
+  box-shadow: 0 12px 26px rgba(4, 12, 24, .24);
+  transform: translateY(-2px);
+}
+
+.stat-card-button:focus-visible {
+  outline: 3px solid rgba(125, 211, 252, .9);
+  outline-offset: 3px;
+}
+
+.stat-card-button .stat-caption { display: block; }
+
+.bank-modal-backdrop {
+  position: fixed;
+  z-index: 100;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 18px;
+  background: rgba(5, 10, 19, .76);
+  backdrop-filter: blur(7px);
+  overscroll-behavior: contain;
+  animation: bank-fade-in .18s ease both;
+}
+
+.bank-modal-card {
+  position: relative;
+  width: min(100%, 980px);
+  max-height: min(92vh, 760px);
+  overflow: auto;
+  overflow-anchor: none;
+  overscroll-behavior: contain;
+  scroll-behavior: auto;
+  padding: clamp(22px, 5vw, 38px);
+  border: 1px solid rgba(125, 211, 252, .26);
+  border-radius: 24px;
+  color: var(--ink, #f5fbff);
+  background: linear-gradient(145deg, #172a43, #0d1728 72%);
+  box-shadow: 0 26px 80px rgba(0, 0, 0, .42);
+  animation: bank-rise-in .22s ease both;
+}
+
+.bank-close-button {
+  position: absolute;
+  top: 22px;
+  right: 22px;
+  display: grid;
+  width: 44px;
+  height: 44px;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, .16);
+  border-radius: 50%;
+  color: var(--ink, #f5fbff);
+  background: rgba(255, 255, 255, .08);
+  font-size: 28px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.bank-close-button:hover { background: rgba(255, 255, 255, .16); }
+.bank-close-button:focus-visible { outline: 3px solid rgba(238, 189, 99, .9); outline-offset: 3px; }
+
+.bank-modal-header { display: flex; justify-content: space-between; gap: 20px; padding-right: 42px; }
+.bank-modal-header h2 { margin: 3px 0 7px; font-size: clamp(25px, 6vw, 36px); letter-spacing: -.03em; }
+.bank-modal-header p:last-child { max-width: 510px; margin: 0; color: var(--muted, #9fb1c8); line-height: 1.55; }
+.bank-seal { display: grid; flex: 0 0 54px; width: 54px; height: 54px; place-items: center; border: 1px solid rgba(238, 189, 99, .5); border-radius: 16px; color: #f6d486; background: rgba(238, 189, 99, .12); font-size: 25px; font-weight: 800; transform: translateX(-16px); }
+
+.bank-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(190px, .85fr);
+  align-items: stretch;
+  gap: 14px;
+  margin: 25px 0 17px;
+}
+
+.bank-balance {
+  display: grid;
+  align-content: center;
+  gap: 7px;
+  min-height: 180px;
+  padding: 24px;
+  border: 1px solid rgba(108, 224, 178, .42);
+  border-radius: 20px;
+  background: linear-gradient(135deg, rgba(65, 177, 139, .24), rgba(21, 55, 71, .76));
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .06);
+}
+
+.bank-balance span, .bank-balance small { color: #a7dfca; }
+.bank-balance span { font-size: 11px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
+.bank-balance strong { color: #f4fff9; font-size: clamp(34px, 8vw, 56px); line-height: 1; letter-spacing: -.055em; overflow-wrap: anywhere; }
+.bank-balance small { font-size: 12px; line-height: 1.4; }
+
+.bank-leader-visual {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-width: 0;
+  padding: 18px 14px 15px;
+  border: 1px solid rgba(238, 189, 99, .42);
+  border-radius: 20px;
+  text-align: center;
+  background:
+    linear-gradient(90deg, rgba(24, 63, 139, .18) 0 33.33%, rgba(255, 255, 255, .045) 33.33% 66.66%, rgba(198, 54, 76, .14) 66.66% 100%),
+    linear-gradient(160deg, rgba(238, 189, 99, .15), rgba(5, 13, 25, .52));
+}
+
+.bank-leader-visual::before { position: absolute; top: 0; right: 0; left: 0; height: 4px; content: ''; background: linear-gradient(90deg, #244a9b 0 33.33%, #f5f7fa 33.33% 66.66%, #d64a5b 66.66% 100%); }
+.bank-poster-kicker { margin: 0; color: #f6d486; font-size: 10px; font-weight: 900; letter-spacing: .2em; line-height: 1.2; text-transform: uppercase; }
+.bank-portrait-wrap { position: relative; width: 156px; height: 198px; overflow: hidden; border: 3px solid rgba(238, 189, 99, .82); border-radius: 10px; background: linear-gradient(145deg, #334b68, #172237); box-shadow: 0 13px 28px rgba(0, 0, 0, .34), 0 0 0 5px rgba(8, 18, 34, .22); }
+.bank-poster-ribbon { position: absolute; z-index: 2; top: 0; bottom: 0; left: 0; width: 5px; background: linear-gradient(#244a9b 0 33.33%, #f5f7fa 33.33% 66.66%, #d64a5b 66.66%); opacity: .9; pointer-events: none; }
+.bank-portrait-wrap::after { position: absolute; right: 0; bottom: 0; left: 0; height: 34%; content: ''; background: linear-gradient(transparent, rgba(5, 12, 23, .38)); pointer-events: none; }
+.bank-leader-photo,
+.bank-leader-silhouette { display: block; width: 100%; height: 100%; object-fit: cover; object-position: 50% 13%; }
+.bank-leader-photo { filter: saturate(1.08) contrast(1.06); }
+.bank-leader-silhouette { object-fit: cover; filter: contrast(1.2); }
+.bank-leader-photo[hidden],
+.bank-leader-silhouette[hidden] { display: none; }
+.bank-portrait-fallback { display: grid; width: 100%; height: 100%; place-items: center; color: #f6d486; font-size: 27px; font-weight: 800; letter-spacing: .08em; }
+.bank-leader-name { display: grid; width: 100%; min-width: 0; gap: 4px; padding: 10px 8px 0; border-top: 1px solid rgba(238, 189, 99, .38); }
+.bank-leader-name small { color: #f6d486; font-size: 10px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
+.bank-leader-name strong { overflow-wrap: anywhere; font-size: 18px; letter-spacing: -.02em; }
+.bank-leader-name span { color: var(--muted, #9fb1c8); font-size: 11px; line-height: 1.35; }
+
+.bank-finance-panel { padding: 18px; border: 1px solid rgba(255, 255, 255, .12); border-radius: 20px; background: rgba(5, 13, 25, .32); }
+.bank-finance-heading { margin-bottom: 13px; }
+.bank-finance-heading h3 { margin: 4px 0 0; font-size: 20px; }
+
+.bank-metrics { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+.bank-metric { display: flex; align-items: center; gap: 11px; min-height: 70px; padding: 12px; border: 1px solid rgba(255, 255, 255, .1); border-radius: 15px; background: rgba(255, 255, 255, .045); }
+.bank-metric-icon { display: grid; flex: 0 0 32px; width: 32px; height: 32px; place-items: center; border-radius: 10px; background: rgba(255, 255, 255, .12); color: inherit; font-size: 15px; font-weight: 800; }
+.bank-metric small, .bank-metric strong { display: block; }
+.bank-metric small { margin-bottom: 4px; color: var(--muted, #9fb1c8); font-size: 11px; }
+.bank-metric strong { font-size: 16px; }
+.bank-metric.mint { color: #6ce0b2; }
+.bank-metric.sky { color: #7dd3fc; }
+.bank-metric.gold { color: #f6d486; }
+.bank-metric.coral { color: #ff8b85; }
+
+.bank-market-section,
+.bank-loan-section,
+.bank-active-section { margin-top: 17px; padding: 20px; border: 1px solid rgba(255, 255, 255, .12); border-radius: 20px; background: rgba(5, 13, 25, .34); }
+.bank-section-heading { display: flex; align-items: flex-start; justify-content: space-between; gap: 14px; }
+.bank-section-heading h3 { margin: 4px 0 0; font-size: 21px; letter-spacing: -.02em; }
+.bank-section-hint { margin: 8px 0 15px; color: var(--muted, #9fb1c8); font-size: 13px; line-height: 1.5; }
+.bank-market-count,
+.bank-active-count,
+.bank-rate-badge { display: inline-flex; align-items: center; justify-content: center; min-height: 28px; padding: 5px 10px; border: 1px solid rgba(238, 189, 99, .32); border-radius: 999px; color: #f6d486; background: rgba(238, 189, 99, .1); font-size: 11px; font-weight: 800; white-space: nowrap; }
+.bank-active-count { min-width: 28px; }
+.bank-offers { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+.bank-offer { display: grid; grid-template-columns: 42px minmax(0, 1fr) auto; align-items: center; gap: 10px; min-height: 78px; padding: 11px; border: 1px solid rgba(255, 255, 255, .1); border-radius: 15px; color: var(--ink, #f5fbff); background: rgba(255, 255, 255, .045); font: inherit; text-align: left; cursor: pointer; transition: border-color .18s ease, background .18s ease, transform .18s ease; }
+.bank-offer:hover { border-color: rgba(125, 211, 252, .55); background: rgba(52, 84, 119, .42); transform: translateY(-1px); }
+.bank-offer:focus-visible { outline: 3px solid rgba(125, 211, 252, .85); outline-offset: 2px; }
+.bank-offer.is-selected { border-color: rgba(238, 189, 99, .82); background: linear-gradient(135deg, rgba(238, 189, 99, .18), rgba(43, 72, 101, .42)); box-shadow: inset 0 0 0 1px rgba(238, 189, 99, .14); }
+.bank-offer-mark { display: grid; width: 38px; height: 38px; place-items: center; border-radius: 12px; color: #fff; background: #274e8e; font-size: 11px; font-weight: 900; letter-spacing: .03em; }
+.bank-offer-green .bank-offer-mark { background: #2c8b68; }
+.bank-offer-red .bank-offer-mark { background: #b83b52; }
+.bank-offer-orange .bank-offer-mark { background: #b86c27; }
+.bank-offer-cyan .bank-offer-mark { background: #187f91; }
+.bank-offer-blue .bank-offer-mark { background: #266cb7; }
+.bank-offer-gold .bank-offer-mark { color: #1c2635; background: #e7b85e; }
+.bank-offer-violet .bank-offer-mark { background: #6945a7; }
+.bank-offer-copy,
+.bank-offer-rate { min-width: 0; }
+.bank-offer-copy strong,
+.bank-offer-copy small,
+.bank-offer-rate strong,
+.bank-offer-rate small { display: block; }
+.bank-offer-copy strong { overflow-wrap: anywhere; font-size: 13px; }
+.bank-offer-copy small { margin-top: 4px; overflow: hidden; color: var(--muted, #9fb1c8); font-size: 10px; line-height: 1.25; text-overflow: ellipsis; white-space: nowrap; }
+.bank-offer-rate { text-align: right; }
+.bank-offer-rate strong { color: #f6d486; font-size: 15px; }
+.bank-offer-rate small { margin-top: 3px; color: var(--muted, #9fb1c8); font-size: 9px; }
+.bank-loan-form { display: grid; grid-template-columns: 1.05fr 1fr 1.05fr auto; align-items: end; gap: 11px; }
+.bank-loan-form label { display: grid; gap: 6px; color: var(--muted, #9fb1c8); font-size: 11px; font-weight: 800; }
+.bank-loan-form input,
+.bank-loan-form select { width: 100%; min-height: 44px; padding: 10px 12px; border: 1px solid rgba(255, 255, 255, .16); border-radius: 11px; color: var(--ink, #f5fbff); background: rgba(0, 0, 0, .22); font: inherit; font-size: 14px; }
+.bank-loan-form input:focus-visible,
+.bank-loan-form select:focus-visible { outline: 3px solid rgba(125, 211, 252, .8); outline-offset: 2px; }
+.bank-loan-form select option { color: #132136; background: #f3f6fa; }
+.bank-quote { display: grid; gap: 2px; min-height: 44px; padding: 6px 10px; border-left: 2px solid #6ce0b2; }
+.bank-quote small { color: var(--muted, #9fb1c8); font-size: 10px; }
+.bank-quote strong { color: #6ce0b2; font-size: 16px; }
+.bank-quote span { color: var(--muted, #9fb1c8); font-size: 9px; }
+.bank-loan-submit { min-height: 44px; white-space: nowrap; }
+.bank-loan-item { margin-top: 10px; padding: 14px; border: 1px solid rgba(108, 224, 178, .24); border-radius: 14px; background: rgba(108, 224, 178, .06); }
+.bank-loan-heading { display: flex; align-items: flex-start; justify-content: space-between; gap: 10px; }
+.bank-loan-heading strong,
+.bank-loan-heading small { display: block; }
+.bank-loan-heading strong { font-size: 14px; }
+.bank-loan-heading small { margin-top: 4px; color: var(--muted, #9fb1c8); font-size: 11px; }
+.bank-loan-status { padding: 4px 8px; border-radius: 999px; color: #6ce0b2; background: rgba(108, 224, 178, .12); font-size: 9px; font-weight: 900; letter-spacing: .08em; text-transform: uppercase; white-space: nowrap; }
+.bank-loan-details { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 13px; }
+.bank-loan-details span { display: grid; gap: 4px; }
+.bank-loan-details small { color: var(--muted, #9fb1c8); font-size: 10px; }
+.bank-loan-details strong { font-size: 13px; }
+.bank-empty-loans { display: flex; align-items: center; gap: 10px; margin-top: 12px; padding: 13px; border: 1px dashed rgba(255, 255, 255, .16); border-radius: 12px; color: var(--muted, #9fb1c8); }
+.bank-empty-loans span { color: #f6d486; font-size: 22px; }
+.bank-empty-loans p { margin: 0; font-size: 13px; }
+
+@keyframes bank-fade-in { from { opacity: 0; } to { opacity: 1; } }
+@keyframes bank-rise-in { from { opacity: 0; transform: translateY(12px) scale(.98); } to { opacity: 1; transform: translateY(0) scale(1); } }
+
+@media (max-width: 520px) {
+  .bank-modal-backdrop { align-items: end; padding: 10px; }
+  .bank-modal-card { max-height: 94vh; border-radius: 22px 22px 14px 14px; padding: 21px 16px 18px; }
+  .bank-modal-header { gap: 10px; }
+  .bank-seal { flex-basis: 45px; width: 45px; height: 45px; }
+  .bank-hero { grid-template-columns: 1fr; }
+  .bank-balance { min-height: 148px; padding: 20px; }
+  .bank-leader-visual { flex-direction: column; justify-content: center; text-align: center; }
+  .bank-portrait-wrap { flex: 0 0 158px; width: 124px; height: 158px; }
+  .bank-leader-name { align-self: stretch; text-align: center; }
+  .bank-metric { min-height: 64px; padding: 10px; }
+  .bank-metric strong { font-size: 14px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bank-modal-backdrop, .bank-modal-card { animation: none; }
+  .stat-card-button, .bank-offer { transition: none; }
+}
+
+@media (max-width: 760px) {
+  .bank-offers { grid-template-columns: 1fr; }
+  .bank-loan-form { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .bank-quote, .bank-loan-submit { grid-column: span 2; }
+}
+
+@media (max-width: 520px) {
+  .bank-market-section, .bank-loan-section, .bank-active-section { padding: 15px; }
+  .bank-section-heading h3 { font-size: 18px; }
+  .bank-offer { grid-template-columns: 38px minmax(0, 1fr) auto; }
+  .bank-offer-mark { width: 34px; height: 34px; }
+  .bank-offer-copy strong { font-size: 12px; }
+  .bank-offer-copy small { font-size: 9px; }
+  .bank-loan-form { grid-template-columns: 1fr; }
+  .bank-quote, .bank-loan-submit { grid-column: auto; }
+  .bank-loan-details strong { font-size: 12px; }
+}

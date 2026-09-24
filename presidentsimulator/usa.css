@@ -1,0 +1,137 @@
+/* American scenario accents: federal navy, flag red, and blue-chip highlights. */
+.app-shell.usa-scenario {
+  --coral: #ef6b68;
+  --gold: #f2c14e;
+  --mint: #63c7b0;
+  --sky: #73a9e6;
+  --usa-blue: #4b82cf;
+  --usa-red: #d85d67;
+}
+
+.app-shell.usa-scenario .country-badge,
+.app-shell.usa-scenario .economy-law-badge,
+.app-shell.usa-scenario .bank-seal {
+  border-color: rgba(75, 130, 207, .72);
+  background: linear-gradient(135deg, rgba(75, 130, 207, .2), rgba(216, 93, 103, .14));
+}
+
+.app-shell.usa-scenario .political-system,
+.app-shell.usa-scenario .political-election-status {
+  border-color: rgba(75, 130, 207, .34);
+}
+
+.app-shell.usa-scenario .party-democrats .party-mark,
+.app-shell.usa-scenario .coalition-party[data-coalition-party="democrats"] .coalition-party-mark {
+  box-shadow: inset 0 0 0 1px rgba(75, 130, 207, .55);
+}
+
+.app-shell.usa-scenario .party-republicans .party-mark,
+.app-shell.usa-scenario .coalition-party[data-coalition-party="republicans"] .coalition-party-mark {
+  box-shadow: inset 0 0 0 1px rgba(216, 93, 103, .55);
+}
+
+.app-shell.usa-scenario .hemicycle-tribune {
+  color: #dce9ff;
+  border-color: rgba(75, 130, 207, .48);
+}
+
+.usa-mechanic-note {
+  margin: 12px 0 0;
+  padding: 10px 12px;
+  border-left: 3px solid var(--usa-blue, #4b82cf);
+  color: var(--muted);
+  background: rgba(75, 130, 207, .08);
+  font-size: .84rem;
+  line-height: 1.45;
+}
+
+.usa-defense-grid {
+  margin-top: 4px;
+}
+
+.usa-defense-card {
+  border-color: rgba(75, 130, 207, .3);
+  background: rgba(75, 130, 207, .08);
+}
+
+.usa-defense-card:hover {
+  border-color: var(--usa-blue, #4b82cf);
+  background: rgba(75, 130, 207, .16);
+}
+
+.usa-defense-icon {
+  color: #0b1d33;
+  background: linear-gradient(135deg, #f2c14e, #f6d486);
+}
+
+.usa-defense-card > small {
+  color: var(--usa-blue, #4b82cf);
+}
+
+.usa-defense-card.is-disabled > small {
+  color: var(--muted);
+}
+
+.usa-chambers {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin-bottom: 16px;
+}
+
+.usa-chamber {
+  min-width: 0;
+  padding: 12px;
+  border: 1px solid rgba(75, 130, 207, .24);
+  border-radius: 16px;
+  background: rgba(15, 34, 63, .24);
+}
+
+.usa-chamber-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.usa-chamber-heading small,
+.usa-chamber-heading span {
+  color: var(--muted);
+  font-size: .67rem;
+  font-weight: 800;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.usa-chamber-heading h4 { margin: 3px 0 0; font-size: 1rem; }
+.usa-chamber .hemicycle-visual { min-height: 185px; }
+
+.usa-federal-summary {
+  margin: 14px 0 18px;
+  padding: 14px;
+  border: 1px solid rgba(75, 130, 207, .3);
+  border-radius: 16px;
+  background: linear-gradient(135deg, rgba(15, 34, 63, .56), rgba(74, 37, 54, .26));
+}
+
+.usa-federal-heading,
+.usa-federal-metrics {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.usa-federal-heading h4 { margin: 3px 0 0; font-size: 1rem; }
+.usa-federal-badge { color: #f6d486; font-size: .72rem; font-weight: 900; text-transform: uppercase; }
+.usa-federal-metrics { align-items: stretch; margin-top: 13px; }
+.usa-federal-metrics > div { flex: 1; min-width: 0; padding: 9px; border-radius: 10px; background: rgba(255,255,255,.05); }
+.usa-federal-metrics span,
+.usa-federal-summary > p { color: var(--muted); font-size: .74rem; line-height: 1.4; }
+.usa-federal-metrics strong { display: block; margin-top: 4px; color: #e8f1ff; font-size: 1.05rem; }
+.usa-federal-summary > p { margin: 11px 0 0; }
+
+@media (max-width: 760px) {
+  .usa-chambers { grid-template-columns: 1fr; }
+}
